@@ -1,0 +1,301 @@
+<!doctype html>
+<!--
+
+    Welcome to the light side of the source, young padawan.
+
+    One step closer to learn something interesting you are...
+
+                               ____
+                            _.' :  `._
+                        .-.'`.  ;   .'`.-.
+               __      / : ___\ ;  /___ ; \      __
+             ,'_ ""=-.:__;".-.";: :".-.":__;.-="" _`,
+             :' `.t""=-.. '<@.`;_  ',@:` ..-=""j.' `;
+                  `:-.._J '-.-'L__ `-.-' L_..-;'
+                    "-.__ ;  .-"  "-.  : __.-"
+                        L ' /.======.\ ' J
+                         "-.   "__"   .-"
+                        __.l"-:_JL_;-";.__
+                     .-j/'.;  ;""""  / .'\"-.
+                   .' /:`. "-.:     .-" .';  `.
+                .-"  / ;  "-. "-..-" .-"  :    "-.
+             .+"-.  : :      "-.__.-"      ;-._   \
+             ; \  `.; ;                    : : "+. ;
+             :  ;   ; ;                    : ;  : \:
+             ;  :   ; :                    ;:   ;  :
+            : \  ;  :  ;                  : ;  /  ::
+            ;  ; :   ; :                  ;   :   ;:
+            :  :  ;  :  ;                : :  ;  : ;
+            ;\    :   ; :                ; ;     ; ;
+            : `."-;   :  ;              :  ;    /  ;
+             ;    -:   ; :              ;  : .-"   :
+             :\     \  :  ;            : \.-"      :
+              ;`.    \  ; :            ;.'_..-=  / ;
+              :  "-.  "-:  ;          :/."      .'  :
+               \         \ :          ;/  __        :
+                \       .-`.\        /t-""  ":-+.   :
+                 `.  .-"    `l    __/ /`. :  ; ; \  ;
+                   \   .-" .-"-.-"  .' .'j \  /   ;/
+                    \ / .-"   /.     .'.' ;_:'    ;
+                     :-""-.`./-.'     /    `.___.'
+                           \ `t  ._  /
+                            "-.t-._:'
+
+-->
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="shortcut icon" type="image/x-icon" href="https://www.tableau.com/themes/custom/tableau_www/favicon.ico">
+
+    <title>Datenbanken II - Data Warehouse - Tableau</title>
+
+    <link rel="stylesheet" href="dist/reset.css">
+    <link rel="stylesheet" href="dist/reveal.css">
+    <link rel="stylesheet" href="dist/theme/black.css" id="theme">
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+
+    <!-- Chalkboard -->
+    <link rel="stylesheet" href="./plugin/chalkboard/style.css">
+    <link rel="stylesheet" href="./plugin/customcontrols/style.css">
+    <!-- Font awesome -->
+    <link rel="stylesheet" href="./plugin/menu/font-awesome/css/fontawesome.css">
+
+    <!-- Bootstrap-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="scriptsVARIABLES">
+    <script>
+        let person1Icon = "&#129446;"; // 🦦
+        let person2Icon = "&#129433;"; // 🦙
+        let person3Icon = "&#128012;"; // 🐌
+        let person4Icon = "&#128024;"; // 🐘
+        let person5Icon = "&#128031;"; // 🐟
+    </script>
+</div>
+<div class="reveal">
+    <!-- Footer && <Header -->
+    <style>
+        .reveal .footer {
+            position: absolute;
+            top: 1em;
+            right: 1em;
+            font-size: 0.5em;
+            line-height: 23px;
+        }
+
+        .header {
+            position: absolute;
+            top: 1em;
+            right: 1em;
+        }
+
+        .troll {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 12px;
+        }
+
+        .persons {
+            position: absolute;
+            top: 20px;
+            left: 15px;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            padding-top: 2%;
+        }
+
+        .li__main--topic {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        .caption {
+            color: gray;
+            font-size: 13pt;
+            margin-top: 20pt;
+        }
+    </style>
+    <div class='footer'>
+        &#127891; VORLESUNG <br>
+        &#128197; DATUM <br>
+        &#128100; Person 1 , Person 2, <br>
+        <span style="padding-left:29px"></span> Person 3, Person 4 & <br>
+        <span style="padding-left:29px"></span> Person 5
+    </div>
+    <div id="persons" class="persons">
+        <script>document.write(person1Icon)</script>
+    </div>
+    <!-- Slides -->
+    <div class="slides" id="organisatorisches">
+        <!-- Introduction -->
+        <section>
+            <h2> &#10084;&#65039; - Willkommen zu unserer <br>Präsentation über</h2>
+            <p>
+                <h1>Titel</h1>
+            </p>
+        </section>
+        <!-- Dividing -->
+        <section>
+            <h3>Sprecher</h3>
+            <p>
+                &#8598; Jedes Symbol steht für einen anderen Sprecher
+            <ul style="list-style-type: none">
+                <li>
+                    <script>document.write(person1Icon)</script> &#8594; Person 1
+                </li>
+                <li>
+                    <script>document.write(person2Icon)</script> &#8594; Person 2
+                </li>
+                <li>
+                    <script>document.write(person3Icon)</script> &#8594; Person 3
+                </li>
+                <li>
+                    <script>document.write(person4Icon)</script> &#8594; Person 4
+                </li>
+                <li>
+                    <script>document.write(person5Icon)</script> &#8594; Person 5
+                </li>
+            </ul>
+            </p>
+        </section>
+        <!-- ToC -->
+        <section>
+            <h2 style="padding-top: 1%">Inhalt</h2>
+            <ol type="1" style="font-size:60%;">
+                <li class="li__main--topic">1</li>
+                <li class="li__main--topic">2</li>
+                <li class="li__main--topic">3</li>
+                <li class="li__main--topic">4</li>
+                <ol>
+                    <li>5</li>
+                    <li>6</li>
+                </ol>
+            </ol>
+        </section>
+    </div>
+    <!--
+     _______  ______  __________________   _______  _______
+    (  ____ \(  __  \ \__   __/\__   __/  (       )(  ____ \
+    | (    \/| (  \  )   ) (      ) (     | () () || (    \/
+    | (__    | |   ) |   | |      | |     | || || || (__
+    |  __)   | |   | |   | |      | |     | |(_)| ||  __)
+    | (      | |   ) |   | |      | |     | |   | || (
+    | (____/\| (__/  )___) (___   | |     | )   ( || (____/\
+    (_______/(______/ \_______/   )_(     |/     \|(_______/
+    -->
+    <div class="slides" id="firma">
+        <section>
+            <section>
+                <h1>Überschrift </h1>
+            </section>
+            <section>
+                <h2>Subtopic</h2>
+                
+            </section>
+        </section>
+    </div>
+    <div class="slides" id="endslide">
+        <section>
+            <h1>Vielen Dank für eure <br> Aufmerksamkeit! &#10084;&#65039;️</h1>
+            <br>
+            <p>Schaut auch gerne in unseren <a target="_blank"
+                                               href="https://github.com/XXXX">Presentation
+                - Code</a> und <a target="_blank" href="https://revealjs.com/">reveal.js</a></p>
+        </section>
+    </div>
+    <!-- NO CHANGING AFTER HERE -->
+</div>
+<div id="scripts">
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <!-- Chalkboard -->
+    <script src="plugin/chalkboard/plugin.js"></script>
+    <script src="plugin/customcontrols/plugin.js"></script>
+    <script src="plugin/menu/menu.js"></script>
+    <script>
+        // More info about initialization & config:
+        // - https://revealjs.com/initialization/
+        // - https://revealjs.com/config/
+        Reveal.initialize({
+            hash: true,
+            showNotes: "true",
+            controls: true,
+            progress: true,
+            history: true,
+            center: true,
+            mouseWheel: true,
+            chalkboard: {
+                boardmarkerWidth: 3,
+                chalkWidth: 7,
+                chalkEffect: 1.0,
+                storage: null,
+                src: null,
+                readOnly: undefined,
+                transition: 800,
+                theme: "chalkboard",
+                background: [ 'rgba(127,127,127,.1)' , path + 'img/blackboard.png' ],
+                grid: { color: 'rgb(50,50,10,0.5)', distance: 80, width: 2},
+                eraser: { src: path + 'img/sponge.png', radius: 20},
+                boardmarkers : [
+                    { color: 'rgba(100,100,100,1)', cursor: 'url(' + path + 'img/boardmarker-black.png), auto'},
+                    { color: 'rgba(30,144,255, 1)', cursor: 'url(' + path + 'img/boardmarker-blue.png), auto'},
+                    { color: 'rgba(220,20,60,1)', cursor: 'url(' + path + 'img/boardmarker-red.png), auto'},
+                    { color: 'rgba(50,205,50,1)', cursor: 'url(' + path + 'img/boardmarker-green.png), auto'},
+                    { color: 'rgba(255,140,0,1)', cursor: 'url(' + path + 'img/boardmarker-orange.png), auto'},
+                    { color: 'rgba(150,0,20150,1)', cursor: 'url(' + path + 'img/boardmarker-purple.png), auto'},
+                    { color: 'rgba(255,220,0,1)', cursor: 'url(' + path + 'img/boardmarker-yellow.png), auto'}
+                ]
+            },
+            customcontrols: {
+                controls: [
+                    { icon: '<i class="fa fa-pen"></i>',
+                        title: 'Toggle notes canvas (C)',
+                        action: 'RevealChalkboard.toggleNotesCanvas();'
+                    }
+                ]
+            },
+            menu: { // Menu works best with font-awesome installed: sudo apt-get install fonts-font-awesome
+                side:'left',
+                themes: false,
+                transitions: false,
+                markers: false,
+                hideMissingTitles: true
+            },
+            // Learn about plugins: https://revealjs.com/plugins/
+            plugins: [RevealMarkdown, RevealHighlight, RevealNotes,RevealMenu,RevealChalkboard, RevealCustomControls]
+        });
+        Reveal.on('slidechanged', event => {
+            if (event.indexh == 3) {
+                document.getElementById("persons").innerHTML = person1Icon;
+            }
+        });
+        function changeTheme(input) {
+            var config = {};
+            config.theme = input.value;
+            Reveal.getPlugin("RevealChalkboard").configure(config);
+            input.blur();
+        }
+    </script>
+
+</div>
+</body>
+</html>
