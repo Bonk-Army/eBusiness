@@ -145,7 +145,7 @@
         <span style="padding-left:29px"></span> Lorenz Seufert & David Huh
     </div>
     <div id="persons" class="persons">
-        <script>document.write(lisaIcon)</script>
+        <script>document.write(nicoIcon)</script>
     </div>
     <!-- Slides -->
     <div class="slides" id="organisatorisches">
@@ -520,7 +520,8 @@
             <br>
             <p>Schaut auch gerne in unseren <a target="_blank"
                                                href="https://github.com/XXXX">Presentation
-                - Code</a> und <a target="_blank" href="https://revealjs.com/">reveal.js</a></p>
+                - Code</a>, <br>
+                 unsere <a target="_blank" href="https://github.com/XXXX">Infografik</a> und <a target="_blank" href="https://revealjs.com/">reveal.js</a></p>
         </section>
     </div>
     <!-- NO CHANGING AFTER HERE -->
@@ -587,8 +588,20 @@
             plugins: [RevealMarkdown, RevealHighlight, RevealNotes,RevealMenu,RevealChalkboard, RevealCustomControls]
         });
         Reveal.on('slidechanged', event => {
-            if (event.indexh == 3) {
-                document.getElementById("persons").innerHTML = person1Icon;
+            if (event.indexh == 4 || event.indexh == 5) {
+                document.getElementById("persons").innerHTML = patrickIcon;
+            }
+            if (event.indexh == 6 || event.indexh == 7 ) {
+                document.getElementById("persons").innerHTML = krissiIcon;
+            }
+            if (event.indexh == 8 && event.indexv < 3) {
+                document.getElementById("persons").innerHTML = daveIcon;
+            }
+            if (event.indexh == 8 && event.indexv > 3) {
+                document.getElementById("persons").innerHTML = lorenzIcon;
+            }
+            if (event.indexh == 9 || event.indexh == 11 ) {
+                document.getElementById("persons").innerHTML = lisaIcon;
             }
         });
         function changeTheme(input) {
