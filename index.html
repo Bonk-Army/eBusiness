@@ -145,7 +145,7 @@
         <span style="padding-left:29px"></span> Lorenz Seufert & David Huh
     </div>
     <div id="persons" class="persons">
-        <script>document.write(patrickIcon)</script>
+        <script>document.write(nicoIcon)</script>
     </div>
     <!-- Slides -->
     <div class="slides" id="organisatorisches">
@@ -667,8 +667,11 @@
             plugins: [RevealMarkdown, RevealHighlight, RevealNotes,RevealMenu,RevealChalkboard, RevealCustomControls]
         });
         Reveal.on('slidechanged', event => {
-            if (event.indexh == 4 || event.indexh == 5) {
+            if (event.indexh < 4) {
                 document.getElementById("persons").innerHTML = nicoIcon;
+            }
+            if (event.indexh == 4 || event.indexh == 5) {
+                document.getElementById("persons").innerHTML = patrickIcon;
             }
             if (event.indexh == 6 || event.indexh == 7 ) {
                 document.getElementById("persons").innerHTML = krissiIcon;
