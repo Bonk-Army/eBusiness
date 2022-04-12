@@ -141,11 +141,11 @@
         &#127891; eBusiness <br>
         &#128197; <script>document.write(new Date(Date.now()).toLocaleDateString(locales="de-DE"))</script> <br>
         &#128100; Lisa Kletsko, Nico Holzhäuser, <br>
-        <span style="padding-left:29px"></span> Patrick Müller, Kristin Agne & <br>
+        <span style="padding-left:29px"></span> Patrick Müller, Kristin Agne,<br>
         <span style="padding-left:29px"></span> Lorenz Seufert & David Huh
     </div>
     <div id="persons" class="persons">
-        <script>document.write(patrickIcon)</script>
+        <script>document.write(nicoIcon)</script>
     </div>
     <!-- Slides -->
     <div class="slides" id="organisatorisches">
@@ -310,7 +310,7 @@
                 <b>Wo findet die Zahlung statt ?</b> &#10141; auf dem Device des Kunden <br>
                 <b>Wo werden die Daten gespeichert ?</b> &#10141; auf dem Device des Kunden <br>
                 <b>Für was wird dieser Typ verwendet ?</b> &#10141; um Waren zu kaufen <br>
-                <b>Beispiele ?</b> &#10141; Starbucks, McDoof
+                <b>Beispiele ?</b> &#10141; Starbucks, McDonalds
             </section>
             <section>
                 <img width="500px" src="./assets/img/checkout.png">
@@ -374,7 +374,7 @@
                     <img width="650" src="assets/img/vorteile.png">
                     <br> Source : <a href="https://de.statista.com/statistik/daten/studie/1188373/umfrage/gruende-fuer-nutzung-des-mobilen-bezahlsystems/">Statista</a>
                 </p>
-                <small>DANKE STATISTA FÜR DIESE WELTBEWEGENDE GRAFIK</small>
+                <!-- <small>DANKE STATISTA FÜR DIESE WELTBEWEGENDE GRAFIK</small> -->
             </section>
             <section>
                 <br><br>
@@ -384,7 +384,7 @@
                     <img width="650" src="assets/img/nachteile.png">
                     <br> Source : <a href="https://de.statista.com/statistik/daten/studie/1188383/umfrage/gruende-fuer-nichtnutzung-von-mobile-payment/">Statista</a>
                 </p>
-                <small>DANKE STATISTA FÜR DIESE WELTBEWEGENDE GRAFIK</small>
+                <!-- <small>DANKE STATISTA FÜR DIESE WELTBEWEGENDE GRAFIK</small> -->
             </section>
         </section>
     </div>
@@ -667,8 +667,11 @@
             plugins: [RevealMarkdown, RevealHighlight, RevealNotes,RevealMenu,RevealChalkboard, RevealCustomControls]
         });
         Reveal.on('slidechanged', event => {
-            if (event.indexh == 4 || event.indexh == 5) {
+            if (event.indexh < 4) {
                 document.getElementById("persons").innerHTML = nicoIcon;
+            }
+            if (event.indexh == 4 || event.indexh == 5) {
+                document.getElementById("persons").innerHTML = patrickIcon;
             }
             if (event.indexh == 6 || event.indexh == 7 ) {
                 document.getElementById("persons").innerHTML = krissiIcon;
